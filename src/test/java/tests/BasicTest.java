@@ -24,7 +24,6 @@ public abstract class BasicTest {
 
     protected NavPage navPage;
     protected LoginPage loginPage;
-
     protected MessagePopUpPage messagePopUpPage;
 
     @BeforeClass

@@ -36,10 +36,16 @@ public class NavPage extends BasicPage{
     public WebElement getLogoutButton() {
         return driver.findElement(By.className("btnLogout"));
     }
+
     public void clickOnLogoutButton() {
         getLogoutButton().click();
     }
-
+    public WebElement getSignupButton() {
+        return driver.findElement(By.cssSelector("header a[href='/signup']"));
+    }
+    public void clickOnSignupButton() {
+        getSignupButton().click();
+    }
     public void waitForDropdownMenuVisibility() {
         wait
                 .withMessage("Dropdown menu is not visible")
