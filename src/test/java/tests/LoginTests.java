@@ -44,5 +44,22 @@ public class LoginTests extends BasicTest{
                 .withMessage("Url should be "+baseUrl+"/login!")
                 .until(ExpectedConditions.urlToBe(baseUrl+"/login"));
     }
+    @Test (priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenPasswordIsWrong(){
+        String email = "admin@admin.com";
+        String password = "password123";
+
+        navPage.clickOnLoginButton();
+        loginPage.adminLogin(email, password);
+
+        messagePopUpPage.waitForErrorPopupToBeVisible();
+
+        Assert.assertEquals(messagePopUpPage.getErrorMessage(), "Wrong password",
+                "Error message should appear with text 'Wrong password");
+
+        wait
+                .withMessage("Url should be "+baseUrl+"/login!")
+                .until(ExpectedConditions.urlToBe(baseUrl+"/login"));
+    }
 
 }
