@@ -21,6 +21,8 @@ Before running the tests, ensure you have the following dependencies installed:
 - TestNG
 - Chrome WebDriver
 
+Run tests from command line with: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+
 ## Page Objects
 
 The project follows the Page Object Model (POM) design pattern.
