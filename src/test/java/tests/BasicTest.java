@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import pages.LoginPage;
 import pages.NavPage;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ public abstract class BasicTest {
     protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
 
     protected NavPage navPage;
+    protected LoginPage loginPage;
 
     @BeforeClass
     public void setup() {
@@ -32,6 +34,7 @@ public abstract class BasicTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         navPage= new NavPage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
 
     }
 
