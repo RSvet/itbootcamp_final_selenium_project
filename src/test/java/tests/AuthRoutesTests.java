@@ -19,5 +19,12 @@ public class AuthRoutesTests extends BasicTest{
                 .withMessage("Url should be "+baseUrl+"/login!")
                 .until(ExpectedConditions.urlToBe(baseUrl+"/login"));
     }
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void forbidsVisitsToAdminCitiesUrlIfNotAuthenticated(){
+        driver.navigate().to(baseUrl+"/admin/cities");
+        wait
+                .withMessage("Url should be "+baseUrl+"/login!")
+                .until(ExpectedConditions.urlToBe(baseUrl+"/login"));
+    }
 
 }
