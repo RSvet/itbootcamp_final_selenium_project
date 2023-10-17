@@ -49,7 +49,6 @@ public class ProfileTests extends BasicTest {
                 "Email should have type of email");
 
         Assert.assertTrue(profilePage.isEmailDisabled(), "Email input should be disabled");
-        System.out.println(profilePage.getEmailInput().getAttribute("disabled"));
         Assert.assertEquals(profilePage.getTypeFromNameInput(), "text",
                 "Name input should have type text");
         Assert.assertEquals(profilePage.getTypeFromCityInput(), "text",
