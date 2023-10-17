@@ -31,6 +31,10 @@ public class CitiesPage extends BasicPage{
         return driver.findElements(By.id("edit")).get(row-1);
     }
 
+    public WebElement getDeleteButtonFromTableRow(int row){
+        return driver.findElements(By.id("delete")).get(row-1);
+    }
+
     public void fillSearchInput(String city){
         getSearchInput().sendKeys(city);
     }
@@ -40,6 +44,9 @@ public class CitiesPage extends BasicPage{
     }
     public void clickOnEditButtonFromTableRow(int row){
         getEditButtonFromTableRow(row).click();
+    }
+    public void clickOnDeleteButtonFromTableRow(int row){
+        getDeleteButtonFromTableRow(row).click();
     }
 
     public void fillCityNameInput(String city){
@@ -54,6 +61,17 @@ public class CitiesPage extends BasicPage{
         wait
                 .withMessage("Create/edit dialog is not visible")
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("dlgNewEditItem")));
+    }
+    public void waitForDeleteDialog(){
+        wait
+                .withMessage("Delete dialog is not visible")
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".v-dialog .warning")));
+    }
+    public WebElement getDeleteButtonFromDeleteDialog(){
+        return driver.findElement(By.cssSelector(".v-card__actions button.red--text:last-child"));
+    }
+    public void clickOnDeleteButtonInDeleteDialog(){
+        getDeleteButtonFromDeleteDialog().click();
     }
     public void waitForNumberOfTableRows(int numberOfRows){
         wait

@@ -97,4 +97,30 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertEquals(citiesPage.getTextFromField(1,2), newCity,
                 "City in the name field should be "+newCity);
     }
+    @Test(priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void deleteCity(){
+        String newCity = "Barcelona";
+
+        navPage.clickOnAdminButton();
+        navPage.waitForDropdownMenuVisibility();
+        navPage.clickOnCitiesButton();
+        wait
+                .withMessage("Url should be " + baseUrl + "/admin/cities")
+                .until(ExpectedConditions.urlToBe(baseUrl + "/admin/cities"));
+
+        citiesPage.fillSearchInput(newCity);
+        citiesPage.waitForNumberOfTableRows(1);
+        Assert.assertEquals(citiesPage.getTextFromField(1,2), newCity,
+                "City in the name field should be "+newCity);
+
+        citiesPage.clickOnDeleteButtonFromTableRow(1);
+
+        citiesPage.waitForDeleteDialog();
+        citiesPage.clickOnDeleteButtonInDeleteDialog();
+
+        messagePopUpPage.waitForSuccessPopUp();
+
+        Assert.assertTrue(messagePopUpPage.getSuccessMessageText().contains("Deleted successfully"),
+                "Success message should contain 'Deleted successfully' text");
+    }
 }
