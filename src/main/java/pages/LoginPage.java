@@ -16,11 +16,32 @@ public class LoginPage extends BasicPage{
         return driver.findElement(By.id("password"));
     }
 
+    public WebElement getLoginButton(){
+        return driver.findElement(By.cssSelector("button[type='submit']"));
+    }
+
     public String getEmailInputType(){
         return getEmailInput().getAttribute("type");
     }
     public String getPasswordInputType(){
         return getPasswordInput().getAttribute("type");
+    }
+
+    public void clickOnLoginButton(){
+        getLoginButton().click();
+    }
+    public void fillEmail(String email){
+        getEmailInput().sendKeys(email);
+    }
+
+    public void fillPassword(String password){
+        getPasswordInput().sendKeys(password);
+    }
+
+    public void adminLogin(String email, String password){
+        fillEmail(email);
+        fillPassword(password);
+        clickOnLoginButton();
     }
 
 

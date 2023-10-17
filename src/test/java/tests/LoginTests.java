@@ -27,5 +27,22 @@ public class LoginTests extends BasicTest{
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
                 "Password input type should be 'password'");
     }
+    @Test (priority=3, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenUserDoesNotExist(){
+        String email = "non-existing-user@gmal.com";
+        String password = "password123";
+
+        navPage.clickOnLoginButton();
+        loginPage.adminLogin(email, password);
+
+        messagePopUpPage.waitForErrorPopupToBeVisible();
+
+        Assert.assertEquals(messagePopUpPage.getErrorMessage(), "User does not exists",
+                "Error message should appear with text 'User does not exists");
+
+        wait
+                .withMessage("Url should be "+baseUrl+"/login!")
+                .until(ExpectedConditions.urlToBe(baseUrl+"/login"));
+    }
 
 }
