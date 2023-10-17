@@ -34,12 +34,18 @@ public class NavPage extends BasicPage{
     public WebElement getCitiesButton() {
         return driver.findElement(By.className("btnAdminCities"));
     }
+    public WebElement getEsButton() {
+        return driver.findElement(By.className("btnES"));
+    }
 
     public void clickOnTopLocaleButton() {
         getTopLocaleButton().click();
     }
     public void clickOnEnButton() {
         getEnButton().click();
+    }
+    public void clickOnEsButton() {
+        getEsButton().click();
     }
 
     public void clickOnLoginButton() {
