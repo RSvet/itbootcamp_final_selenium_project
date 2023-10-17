@@ -46,6 +46,17 @@ public class NavPage extends BasicPage{
     public WebElement getUaButton() {
         return driver.findElement(By.className("btnUA"));
     }
+    public WebElement getProfileButton() {
+        return driver.findElement(By.cssSelector("header a[href='/profile']"));
+    }
+
+    public WebElement getHomeButton() {
+        return driver.findElement(By.cssSelector("header a[href='/home']"));
+    }
+
+    public WebElement getAboutButton() {
+        return driver.findElement(By.cssSelector("header a[href='/about']"));
+    }
     public void clickOnTopLocaleButton() {
         getTopLocaleButton().click();
     }
@@ -64,6 +75,10 @@ public class NavPage extends BasicPage{
     public void clickOnUaButton() {
         getUaButton().click();
     }
+    public void clickOnProfileButton() {
+        getProfileButton().click();
+    }
+
     public void clickOnLoginButton() {
         getLoginButton().click();
     }
