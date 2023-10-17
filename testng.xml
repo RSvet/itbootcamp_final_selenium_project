@@ -1,0 +1,33 @@
+<suite name="Smoke Suite" verbose="1">
+    <test name="Login Tests">
+        <classes>
+            <class name="tests.LoginTests"/>
+        </classes>
+    </test>
+    <test name="Signup Tests">
+        <classes>
+            <class name="tests.SignupTests"/>
+        </classes>
+    </test>
+    <test name="Admin Cities Tests">
+        <classes>
+            <class name="tests.AdminCitiesTests"/>
+        </classes>
+    </test>
+    <test name="Auth Routes Tests">
+        <classes>
+            <class name="tests.AuthRoutesTests"/>
+
+        </classes>
+    </test>
+    <test name="Locale Tests">
+        <classes>
+            <class name="tests.LocaleTests"/>
+        </classes>
+    </test>
+    <test name="Profile Tests">
+        <classes>
+            <class name="tests.ProfileTests"/>
+        </classes>
+    </test>
+</suite>
