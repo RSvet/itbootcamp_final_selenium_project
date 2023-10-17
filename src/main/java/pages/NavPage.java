@@ -33,11 +33,23 @@ public class NavPage extends BasicPage{
     public void clickOnLoginButton() {
         getLoginButton().click();
     }
+    public WebElement getLogoutButton() {
+        return driver.findElement(By.className("btnLogout"));
+    }
+    public void clickOnLogoutButton() {
+        getLogoutButton().click();
+    }
 
     public void waitForDropdownMenuVisibility() {
         wait
                 .withMessage("Dropdown menu is not visible")
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("v-menu__content")));
+    }
+
+    public void waitForLogoutButton() {
+        wait
+                .withMessage("Logout button is not visible")
+                .until(ExpectedConditions.visibilityOf(getLogoutButton()));
     }
 
 }

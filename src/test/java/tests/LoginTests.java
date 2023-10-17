@@ -72,5 +72,10 @@ public class LoginTests extends BasicTest{
                 .withMessage("Url should be "+baseUrl+"/home!")
                 .until(ExpectedConditions.urlToBe(baseUrl+"/home"));
     }
+    @Test (priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void logout(){
+        navPage.waitForLogoutButton();
+        navPage.clickOnLogoutButton();
+    }
 
 }
