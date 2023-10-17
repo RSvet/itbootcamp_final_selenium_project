@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -66,13 +67,62 @@ public class ProfilePage extends BasicPage{
         return getEmailInput().getAttribute("value");
     }
 
-    public boolean isDisabled(){
+    public boolean isEmailDisabled(){
         return Boolean.parseBoolean(getEmailInput().getAttribute("disabled"));
+    }
+    public String getValueFromNameInput(){
+        return getNameInput().getAttribute("value");
+    }
+
+    public String getValueFromPhoneInput(){
+        return getTelephoneInput().getAttribute("value");
+    }
+
+    public String getValueFromCityInput(){
+        return getCityInput().getAttribute("value");
+    }
+
+    public String getValueFromCountryInput(){
+        return getCountryInput().getAttribute("value");
+    }
+    public String getValueFromTwitterInput(){
+        return getTwitterInput().getAttribute("value");
+    }
+    public String getValueFromGitHubInput(){
+        return getGitHubInput().getAttribute("value");
     }
     public void waitUntilLoadDialogIsInvisible(){
         wait
                 .withMessage("Please wait dialog is still on the page")
 
                 .until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("v-dialog v-dialog--persistent")));
+    }
+    public void fillName(String name){
+        getNameInput().click();
+        getNameInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),name);
+    }
+    public void fillPhone(String phone){
+        getTelephoneInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),phone);
+    }
+    public void fillCity(String city){
+        getCityInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),city);
+        getCityInput().sendKeys(Keys.ENTER);
+    }
+    public void fillCountry(String country){
+        getNameInput().click();
+        getCountryInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),country);
+    }
+    public void fillTwitter(String twitter){
+        getTwitterInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),twitter);
+    }
+
+    public void fillGitHub(String gitHub){
+        getGitHubInput().sendKeys(Keys.chord(Keys.CONTROL, "a"),gitHub);
+    }
+    public WebElement getSaveButton(){
+        return driver.findElement(By.className("btnSave"));
+    }
+    public void clickOnSaveButton(){
+        getSaveButton().click();
     }
 }
