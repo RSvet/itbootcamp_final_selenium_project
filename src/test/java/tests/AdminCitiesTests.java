@@ -56,4 +56,45 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertTrue(messagePopUpPage.getSuccessMessageText().contains("Saved successfully"),
                 "Success message should contain 'Saved successfully' text");
     }
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void editCity() {
+        String city = "Novi Sad";
+        String newCity = "Barcelona";
+
+        navPage.clickOnAdminButton();
+        navPage.waitForDropdownMenuVisibility();
+        navPage.clickOnCitiesButton();
+        wait
+                .withMessage("Url should be " + baseUrl + "/admin/cities")
+                .until(ExpectedConditions.urlToBe(baseUrl + "/admin/cities"));
+        citiesPage.fillSearchInput(city);
+        citiesPage.waitForNumberOfTableRows(1);
+
+        citiesPage.clickOnEditButtonFromTableRow(1);
+
+        citiesPage.fillCityNameInput(newCity);
+
+        citiesPage.clickOnSaveButton();
+
+        messagePopUpPage.waitForSuccessPopUp();
+
+        Assert.assertTrue(messagePopUpPage.getSuccessMessageText().contains("Saved successfully"),
+                "Success message should contain 'Saved successfully' text");
+    }
+    @Test(priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void searchCity(){
+        String newCity = "Barcelona";
+
+        navPage.clickOnAdminButton();
+        navPage.waitForDropdownMenuVisibility();
+        navPage.clickOnCitiesButton();
+        wait
+                .withMessage("Url should be " + baseUrl + "/admin/cities")
+                .until(ExpectedConditions.urlToBe(baseUrl + "/admin/cities"));
+
+        citiesPage.fillSearchInput(newCity);
+        citiesPage.waitForNumberOfTableRows(1);
+        Assert.assertEquals(citiesPage.getTextFromField(1,2), newCity,
+                "City in the name field should be "+newCity);
+    }
 }

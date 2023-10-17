@@ -24,9 +24,22 @@ public class CitiesPage extends BasicPage{
     public WebElement getCreateEditDialogSaveButton(){
         return driver.findElement(By.className("btnSave"));
     }
+    public WebElement getSearchInput(){
+        return driver.findElement(By.id("search"));
+    }
+    public WebElement getEditButtonFromTableRow(int row){
+        return driver.findElements(By.id("edit")).get(row-1);
+    }
+
+    public void fillSearchInput(String city){
+        getSearchInput().sendKeys(city);
+    }
 
     public void clickOnSaveButton(){
         getCreateEditDialogSaveButton().click();
+    }
+    public void clickOnEditButtonFromTableRow(int row){
+        getEditButtonFromTableRow(row).click();
     }
 
     public void fillCityNameInput(String city){
@@ -41,5 +54,18 @@ public class CitiesPage extends BasicPage{
         wait
                 .withMessage("Create/edit dialog is not visible")
                 .until(ExpectedConditions.visibilityOfElementLocated(By.className("dlgNewEditItem")));
+    }
+    public void waitForNumberOfTableRows(int numberOfRows){
+        wait
+                .withMessage("Number of rows should be "+numberOfRows)
+                .until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("tbody>tr"), numberOfRows));
+    }
+
+    public WebElement getFieldFromTableRow(int row, int column){
+        return driver.findElement(By.xpath("//tbody/tr["+row+"]/td["+column+"]"));
+    }
+
+    public String getTextFromField(int row, int column){
+        return getFieldFromTableRow(row,column).getText();
     }
 }
