@@ -48,4 +48,32 @@ public class SignupTests extends BasicTest{
                 .until(ExpectedConditions.urlToBe(baseUrl+"/signup"));
 
     }
+    @Test(priority=4, retryAnalyzer = RetryAnalyzer.class)
+    public void signup(){
+        String name = "Svetlana Radisic";
+        String email = "svetlana.radisic@bootcamp.rs";
+        String password = "12345";
+        String confirmPassword = "12345";
+
+        navPage.clickOnSignupButton();
+        wait
+                .withMessage("Url should be "+baseUrl+"/signup")
+                .until(ExpectedConditions.urlToBe(baseUrl+"/signup"));
+
+        signupPage.signUp(name, email, password, confirmPassword);
+
+        wait
+                .withMessage("Url should be "+baseUrl+"/home!")
+                .until(ExpectedConditions.urlToBe(baseUrl+"/home"));
+
+        messagePopUpPage.waitForVerifyMessageToBeVisible();
+
+        Assert.assertTrue(messagePopUpPage.getVerifyAccountMessage().contains("IMPORTANT: Verify your account"),
+                "Verify account message should contain 'IMPORTANT: Verify your account'");
+
+        messagePopUpPage.clickOnVerifyDialogCloseButton();
+
+        navPage.clickOnLogoutButton();
+
+    }
 }
