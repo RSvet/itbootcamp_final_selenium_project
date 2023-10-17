@@ -36,4 +36,24 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertEquals(citiesPage.getTypeOfCityNameInput(), "text",
                 "City name input should be of type text");
     }
+    @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void createNewCity() {
+        String city = "Novi Sad";
+
+        navPage.clickOnAdminButton();
+        navPage.waitForDropdownMenuVisibility();
+        navPage.clickOnCitiesButton();
+        wait
+                .withMessage("Url should be " + baseUrl + "/admin/cities")
+                .until(ExpectedConditions.urlToBe(baseUrl + "/admin/cities"));
+        citiesPage.clickOnNewItemButton();
+
+        citiesPage.waitForCreateEditDialog();
+        citiesPage.fillCityNameInput(city);
+        citiesPage.clickOnSaveButton();
+        messagePopUpPage.waitForSuccessPopUp();
+
+        Assert.assertTrue(messagePopUpPage.getSuccessMessageText().contains("Saved successfully"),
+                "Success message should contain 'Saved successfully' text");
+    }
 }

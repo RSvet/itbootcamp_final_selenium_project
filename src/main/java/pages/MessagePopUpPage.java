@@ -46,6 +46,16 @@ public class MessagePopUpPage extends BasicPage{
         getVerifyDialogCloseButton().click();
     }
 
-
+    public WebElement getSuccessMessageContainer(){
+        return driver.findElement(By.cssSelector(".success .v-snack__content"));
+    }
+    public void waitForSuccessPopUp(){
+        wait
+                .withMessage("Success popup is not visible")
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("success")));
+    }
+    public String getSuccessMessageText(){
+        return getSuccessMessageContainer().getText();
+    }
 
 }
