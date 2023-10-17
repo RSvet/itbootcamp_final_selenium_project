@@ -37,7 +37,15 @@ public class NavPage extends BasicPage{
     public WebElement getEsButton() {
         return driver.findElement(By.className("btnES"));
     }
-
+    public WebElement getCnButton() {
+        return driver.findElement(By.className("btnCN"));
+    }
+    public WebElement getFrButton() {
+        return driver.findElement(By.className("btnFR"));
+    }
+    public WebElement getUaButton() {
+        return driver.findElement(By.className("btnUA"));
+    }
     public void clickOnTopLocaleButton() {
         getTopLocaleButton().click();
     }
@@ -47,7 +55,15 @@ public class NavPage extends BasicPage{
     public void clickOnEsButton() {
         getEsButton().click();
     }
-
+    public void clickOnCnButton() {
+        getCnButton().click();
+    }
+    public void clickOnFrButton() {
+        getFrButton().click();
+    }
+    public void clickOnUaButton() {
+        getUaButton().click();
+    }
     public void clickOnLoginButton() {
         getLoginButton().click();
     }

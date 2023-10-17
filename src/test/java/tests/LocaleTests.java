@@ -33,4 +33,11 @@ public class LocaleTests extends BasicTest{
         navPage.clickOnFrButton();
         Assert.assertEquals(landingPage.getTextFromTitle(), "Page d'atterrissage");
     }
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToUa() {
+        navPage.clickOnTopLocaleButton();
+        navPage.waitForDropdownMenuVisibility();
+        navPage.clickOnUaButton();
+        Assert.assertEquals(landingPage.getTextFromTitle(), "Лендінг");
+    }
 }
