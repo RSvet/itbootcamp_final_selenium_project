@@ -61,5 +61,16 @@ public class LoginTests extends BasicTest{
                 .withMessage("Url should be "+baseUrl+"/login!")
                 .until(ExpectedConditions.urlToBe(baseUrl+"/login"));
     }
+    @Test (priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void login(){
+        String email = "admin@admin.com";
+        String password = "12345";
+
+        navPage.clickOnLoginButton();
+        loginPage.adminLogin(email, password);
+        wait
+                .withMessage("Url should be "+baseUrl+"/home!")
+                .until(ExpectedConditions.urlToBe(baseUrl+"/home"));
+    }
 
 }
