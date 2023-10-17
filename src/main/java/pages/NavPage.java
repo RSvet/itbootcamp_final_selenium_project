@@ -22,6 +22,18 @@ public class NavPage extends BasicPage{
     public WebElement getLoginButton() {
         return driver.findElement(By.cssSelector("header a[href='/login']"));
     }
+    public WebElement getLogoutButton() {
+        return driver.findElement(By.className("btnLogout"));
+    }
+    public WebElement getSignupButton() {
+        return driver.findElement(By.cssSelector("header a[href='/signup']"));
+    }
+    public WebElement getAdminButton() {
+        return driver.findElement(By.className("btnAdmin"));
+    }
+    public WebElement getCitiesButton() {
+        return driver.findElement(By.className("btnAdminCities"));
+    }
 
     public void clickOnTopLocaleButton() {
         getTopLocaleButton().click();
@@ -33,18 +45,20 @@ public class NavPage extends BasicPage{
     public void clickOnLoginButton() {
         getLoginButton().click();
     }
-    public WebElement getLogoutButton() {
-        return driver.findElement(By.className("btnLogout"));
-    }
 
     public void clickOnLogoutButton() {
         getLogoutButton().click();
     }
-    public WebElement getSignupButton() {
-        return driver.findElement(By.cssSelector("header a[href='/signup']"));
-    }
+
     public void clickOnSignupButton() {
         getSignupButton().click();
+    }
+
+    public void clickOnAdminButton() {
+        getAdminButton().click();
+    }
+    public void clickOnCitiesButton() {
+        getCitiesButton().click();
     }
     public void waitForDropdownMenuVisibility() {
         wait
