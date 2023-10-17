@@ -13,7 +13,11 @@ import org.testng.annotations.BeforeMethod;
 import pages.*;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
+import java.util.Date;
 
 public abstract class BasicTest {
     protected WebDriver driver;
@@ -55,7 +59,10 @@ public abstract class BasicTest {
     @AfterMethod
     public void afterMethod(ITestResult testResult) throws IOException {
         if (testResult.getStatus() == ITestResult.FAILURE) {
-            Helper.takeAScreenshot(driver, "screenshots/" + testResult.getName() + ".jpg");
+            Date date = Calendar.getInstance().getTime();
+            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh-mm-ss");
+            String currentDate = dateFormat.format(date);
+            Helper.takeAScreenshot(driver, "screenshots/" + testResult.getName() +"_"+currentDate+".jpg");
         }
     }
 
