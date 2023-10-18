@@ -2,15 +2,15 @@
 
 This repository contains a Java project for automating tests using Selenium WebDriver,
 Maven, and TestNG to test the web application [My Awesome App](https://vue-demo.daniel-avellaneda.com/).<br />
-The project follows the Page Object Model (POM) design pattern, providing a structured and maintainable
+Project follows the Page Object Model (POM) design pattern, providing a structured and maintainable
 framework for automating UI tests.<br /> The tests are categorized into the following sections:
 
-- **Login Tests:** Verify user login functionality.
-- **Signup Tests:** Verify signup functionality.
-- **Admin Cities Tests:** Tests edit and delete functionality for table with cities.
-- **Auth Routes Tests:** Tests route protection for user that is not authenticated.
-- **Locale Tests:** Tests page content in different languages.
-- **Profile Tests:** Tests profile form and functionality for editing a profile.
+- [**Login Tests:**](test_scenarios/TS_LOGIN_PAGE.md) Verify user login functionality
+- [**Signup Tests:**](test_scenarios/TS_SIGN_UP_PAGE.md) Verify signup functionality
+- [**Admin Cities Tests:**](test_scenarios/TS_ADMIN_CITIES_PAGE.md) Test edit and delete functionality for table with cities
+- [**Auth Routes Tests:**](test_scenarios/TS_AUTH_ROUTES.md) Test route protection for unauthenticated user 
+- [**Locale Tests:**](test_scenarios/TS_LOCALE.md) Test page content in different languages
+- [**Profile Tests:**](test_scenarios/TS_PROFILE_PAGE.md) Test profile page form and functionality for editing a profile
 
 ## Prerequisites
 
@@ -25,5 +25,4 @@ Run tests from command line with: mvn clean test -Dsurefire.suiteXmlFiles=testng
 
 ## Page Objects
 
-The project follows the Page Object Model (POM) design pattern.
 Page objects are located in the `src/main/java/pages` directory. You can extend or modify them to accommodate changes in the application.
