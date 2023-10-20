@@ -8,7 +8,7 @@ Message pop up and Cities page. They are located in `src/main/java/pages` direct
 You can extend or modify them to accommodate changes in the application.<br/>
 Test scripts can be found in `src/test/java/tests` directory.<br/>
 
-### All tests are organized into six categories:<br/>
+### All tests are organized into six categories:
 
 📌 **Login Tests**: login page functionality, successful login, error messages, input fields and button (**[test cases](test_scenarios/TS_LOGIN_PAGE.md)**) <br/>
 📌 **Signup Tests**: signup functionality, error messages, successful sign up, input fields and button (**[test cases](test_scenarios/TS_SIGN_UP_PAGE.md)**)<br/>
