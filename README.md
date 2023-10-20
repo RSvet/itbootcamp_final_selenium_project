@@ -1,18 +1,23 @@
-# Selenium Test Automation Project - My Awesome App
+## Final IT Bootcamp project - Selenium Test Automation
 
-This repository contains a Java project for automating tests using Selenium WebDriver,
-Maven, and TestNG to test the web application [My Awesome App](https://vue-demo.daniel-avellaneda.com/).<br />
-Project follows the Page Object Model (POM) design pattern, providing a structured and maintainable
-framework for automating UI tests.<br /> The tests are categorized into the following sections:
+This is Java based project example for automating tests with Selenium WebDriver,
+Maven, and TestNG using the web application [My Awesome App](https://vue-demo.daniel-avellaneda.com/).<br />
+Project is organized using the Page Object Model design pattern which provides better maintainability and structure for
+automating UI tests.<br/> Page classes are organized into Landing, Login, Signup, Profile, Navigation, 
+Message pop up and Cities page. They are located in `src/main/java/pages` directory.<br/>
+You can extend or modify them to accommodate changes in the application.<br/>
+Test scripts can be found in `src/test/java/tests` directory.<br/>
 
-- [**Login Tests:**](test_scenarios/TS_LOGIN_PAGE.md) Verify user login functionality
-- [**Signup Tests:**](test_scenarios/TS_SIGN_UP_PAGE.md) Verify signup functionality
-- [**Admin Cities Tests:**](test_scenarios/TS_ADMIN_CITIES_PAGE.md) Test edit and delete functionality for table with cities
-- [**Auth Routes Tests:**](test_scenarios/TS_AUTH_ROUTES.md) Test route protection for unauthenticated user 
-- [**Locale Tests:**](test_scenarios/TS_LOCALE.md) Test page content in different languages
-- [**Profile Tests:**](test_scenarios/TS_PROFILE_PAGE.md) Test profile page form and functionality for editing a profile
+### All tests are organized into six categories:<br/>
 
-## Prerequisites
+📌 **Login Tests**: login page functionality, successful login, error messages, input fields and button (**[test cases](test_scenarios/TS_LOGIN_PAGE.md)**) <br/>
+📌 **Signup Tests**: signup functionality, error messages, successful sign up, input fields and button (**[test cases](test_scenarios/TS_SIGN_UP_PAGE.md)**)<br/>
+📌 **Admin Cities Tests**: add, edit and delete functionality for cities page (**[test cases](test_scenarios/TS_ADMIN_CITIES_PAGE.md)**)<br/>
+📌 **Auth Routes Tests**: route protection in case user is not authenticated (**[test cases](test_scenarios/TS_AUTH_ROUTES.md)**)<br/>
+📌 **Locale Tests**: language buttons functionality, page content in different languages (**[test cases](test_scenarios/TS_LOCALE.md)**)<br/>
+📌 **Profile Tests**: profile page functionality, editing a user profile, error messages and successful edit (**[test cases](test_scenarios/TS_PROFILE_PAGE.md)**)
+
+### Requirements
 
 Before running the tests, ensure you have the following dependencies installed:
 
@@ -21,8 +26,9 @@ Before running the tests, ensure you have the following dependencies installed:
 - TestNG
 - Chrome WebDriver
 
-Run tests from command line with: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
 
-## Page Objects
 
-Page objects are located in the `src/main/java/pages` directory. You can extend or modify them to accommodate changes in the application.
+
+
+For running testng file from command line use command: `mvn clean test -Dsurefire.suiteXmlFiles=testng.xml`
+
